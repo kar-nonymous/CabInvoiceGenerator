@@ -23,16 +23,16 @@ namespace NUnitTestProject1
             Assert.AreEqual(expectedFare, actualFare);
         }
         /// <summary>
-        /// UC 2 : 
+        /// UC 2&3 : 
         /// Given multiple rides should return invoice summary with aggregate totalFare
         /// </summary>
         [Test]
         public void GivenMultipleRides_ShouldReturnInvoiceSummary()
         {
             // Arrange
-            invoiceGenerator = new InvoiceGenerator(RideType.NORMAL);
-            Ride[] rides = { new Ride(3, 5), new Ride(5, 4) };
-            InvoiceSummary expectedSummary = new InvoiceSummary(3, 116);
+            Ride[] rides = { new Ride(3, 5), new Ride(5, 4), new Ride(2, 5) };
+            InvoiceSummary expectedSummary = new InvoiceSummary(3, 114, 38);
+            invoiceGenerator = new InvoiceGenerator();
             // Act
             InvoiceSummary actualSummary = invoiceGenerator.CalculateFare(rides);
             //Assert
